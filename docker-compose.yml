@@ -1,0 +1,24 @@
+version: '3'
+services:
+  caddy:
+    image: abiosoft/caddy
+    restart: always
+    volumes:
+      - "$service_dir/conf/caddy/Caddyfile:/etc/Caddyfile:ro"
+      - "$service_dir/conf/caddy/www:/www:ro"
+      - "$service_dir/conf/vhosts:/conf-vhosts:ro"
+      - "$data_dir/sites:/sites:ro"
+      - "$data_dir/vhosts:/vhosts:ro"
+      - "$data_dir/logs:/logs:rw"
+    ports:
+      - "80:80"
+      - "443:443"
+  frp_server:
+    image: geektr/frp
+    restart: always
+    env_file:
+      - "$secrets_dir/frp/frp.env"
+    volumes:
+      - "$service_dir/conf/frp/frps.ini:/etc/frp/frps.ini:ro"
+    ports:
+      - "22:22"

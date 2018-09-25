@@ -1,0 +1,17 @@
+http://health.hub.geektr.cloud {
+    root /www
+    errors {
+        * sadpanda.jpg
+    }
+}
+
+https://health.hub.geektr.cloud {
+    tls geektheripper@gmail.com
+    root /www
+    errors {
+        * sadpanda.jpg
+    }
+}
+
+import /vhosts/*
+import /conf-vhosts/*

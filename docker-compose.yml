@@ -3,6 +3,8 @@ services:
   caddy:
     image: abiosoft/caddy
     restart: always
+    environment:
+      - ACME_AGREE=true
     volumes:
       - "$service_dir/conf/caddy/Caddyfile:/etc/Caddyfile:ro"
       - "$service_dir/conf/caddy/www:/www:ro"

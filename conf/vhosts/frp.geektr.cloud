@@ -1,6 +1,6 @@
 frp.geektr.cloud {
     tls geektheripper@gmail.com
-    proxy / frp_server:7500 {
+    proxy / frp.geektr.cloud:7500 {
         transparent
         websocket
     }

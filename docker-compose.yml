@@ -20,5 +20,4 @@ services:
       - "$secrets_dir/frp/frp.env"
     volumes:
       - "$service_dir/conf/frp/frps.ini:/etc/frp/frps.ini:ro"
-    ports:
-      - "22:22"
+    network_mode: "host"

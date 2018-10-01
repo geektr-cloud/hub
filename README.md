@@ -1,34 +1,24 @@
-# Hub
+# hub
+
+this project deployed via [geektr-cloud/deployer](https://github.com/geektr-cloud/deployer)
 
 ## Deploy
 
 ```bash
-# source deploy script first
-source <(wget -qO- https://raw.githubusercontent.com/geektr-cloud/hub/master/deploy.sh)
-
 # update (init) project to local enviroment
-hub::update
-
-# when first run this init data directory and secrets directory
-hub::init-data
-hub::init-secrets
+# when first run, it will init data directory and secrets directory
+deployer update geektr-cloud/hub
 
 # edit secrets files
 # vim xxxxxx
 
 # up the services
-hub::up
+deployer up geektr-cloud/hub
 ```
 
 ## Other Operation
 
 ```bash
-source /srv/geektr.cloud/hub/deploy.sh
-
-# backups
-hub::backup-secrets
-hub::backup-data
-
 # reload web server
-hub::caddy::reload
+./caddy-reload.sh
 ```
